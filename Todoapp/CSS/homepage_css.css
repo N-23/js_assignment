@@ -1,0 +1,104 @@
+/********** Common Properties **********/
+* {
+    margin: 0; 
+    box-sizing: border-box; 
+}
+.clear {
+   clear:both;
+ }
+.container-outer {
+    /* width: 1200px; */
+    margin: 0 auto;
+    background-color: azure;
+ }
+.container-inner{
+    margin: 0px 24px;
+ }
+ ul {
+    list-style-type: none;
+ }
+li {
+    float:left;
+ }
+ script {
+   display: inline-block;
+ }
+/********** Header Properties **********/
+header {
+    /* width: 1200px; */
+    background-color: aliceblue;
+  }
+.image {
+    float: left;
+}
+nav {
+    /* width: 143px; */
+    margin-top: 43px;
+    float: right;
+  }
+nav ul {
+    padding-left: 0px;
+  }
+nav a {
+    padding:10px;
+  }
+ul a{
+    width: 40px;
+    height: 40px;
+  }
+.li1 {
+  margin-right: 15px;
+}
+.li1 a {
+  border: 2px solid blue;
+}
+.li2 {
+    margin-right: 8px;
+  }
+  .li2 a {
+    border: 2px solid blue;
+  }
+.login {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    color: blueviolet;
+}
+.registration {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    color: blueviolet;
+}
+/********** Section-1 and Section-2 Properties **********/
+.section1 {
+    margin-top: 40px;
+    display: inline-block;
+}
+.image1 {
+    float: left;
+}
+/* .arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 60px solid green;
+  border-bottom: 60px solid green;
+  border-left: 60px solid green;
+} */
+.image2 {
+    margin-top: 24px;
+    margin-left: 60px;
+    float: right;
+}
+/********** Footer Properties **********/
+footer {
+    margin-top: 40px;
+    background-color: aliceblue;
+  }
+  .container-inner p {
+    font-size: 18px;
+    text-align: right;
+    font-family: 'Lato';
+    font-weight: 400;
+    color: blueviolet;
+    padding-top: 18px;
+    padding-bottom: 18px;     
+   }
