@@ -7,7 +7,9 @@
   <link rel="stylesheet" type="text/css" href="CSS/registration_css.css" />
   <link href="https://fonts.googleapis.com/css?family=Rubik:400i&display=swap" rel="stylesheet"><!--400:Regular Italic-->
   <link href="https://fonts.googleapis.com/css?family=Nunito:400i&display=swap" rel="stylesheet"><!--400:Regular Italic-->
-  <script src="register.js"></script>
+  
+  <script src="registration.js"></script>
+  
  </head>
  
  <body>
@@ -37,41 +39,44 @@
      
       <section>
         <div class=box>
-          <form id="demo" name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+          <form id="demo" name="myForm" action="#" onsubmit="return validateForm()" method="post"><!--action_page.php-->
             <div class="form-control"> 
               <label class="header">Profile Photo:</label>
-              <input id="image" type="file" name="profile_photo" placeholder="Photo" required="" capture>
+              <input id="image" type="file" name="profile_photo" placeholder="Photo" required="" capture />
             </div>
             <label for="email">Email Id:<abbr title="Required" style="color:red">*</abbr></label>
-            <input aria-required="true" id="email" name="email" pattern="^(([-\w\d]+)(\.[-\w\d]+)*@([-\w\d]+)(\.[-\w\d]+)*(\.([a-zA-Z]{2,5}|[\d]{1,3})){1,2})$" required="required" size="30" spellcheck="false" title="Your email address" type="email" value="">
+            <input placeholder="Valid EmailId"aria-required="true" id="email" name="email" required="required" size="30" spellcheck="false" title="Your email address" type="email" value="" />
             <br>
             <br>
-            <label for="username">First name:</label>
+            <label for="userfirstname">First name:</label>
             <!-- First name: -->
-            <input type="text" name="firstname" pattern="/^[A-Za-z]+$/" size="30" required>
+            <input type="text" id="firstname" name="firstname" placeholder="Name" required />
             <br>
             <br>
-            Last name:
-            <input type="text" name="lastname" required>
+            <!-- Last name: -->
+            <label for="userlastname">Last name:</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Name" required />
             <br>
             <br>
             <div class="genderclass">
-            Gender:<br>
+            <label for="gender">Gender:</label><br>
             <!-- <input type="text" name="gender"> -->
-            <input type="radio" name="gender" value="male" class="mclass">  Male<br>
-            <input type="radio" name="gender" value="female" class="fclass"> Female<br>
-            <input type="radio" name="gender" value="other" class="oclass"> Other
+            <input type="radio" name="gender" value="male" class="mclass" />  Male<br>
+            <input type="radio" name="gender" value="female" class="fclass" /> Female<br>
+            <input type="radio" name="gender" value="other" class="oclass" /> Other
             </div>
             <br>
             <br>
-            Address:
-            <input type="text" name="address" required>
+            <!-- Address: -->
+            <label for="username">Address:</label>
+            <input type="text" id="address" name="address" placeholder="Address" required />
             <br>
             <br>
             <br>
             <!-- <button onclick="myFunction()" class="register">Registration</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button onclick="myFunction()" class="clear">Clear</button> -->
-            <input type="submit" value="register">
+            <button onclick="myFunction1()" class="clear">Clear</button> -->
+            <input type="button" name="submit" value="Registration" id="reg_id" onclick="myFunction()" class="register" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" name="submit" value="Clear" id="cl_id" onclick="myFunction1()" class="clear" />
           </form>
         </div>
         <br>
@@ -84,6 +89,13 @@
         </div>
       </footer>
     </div>
-    
+    <!-- <script>
+      function myFunction() {
+        document.getElementsByClassName("register").innerHTML = "Succesfully Registered";
+      }
+      function myFunction1() {
+        document.getElementsByClassName("clear").innerHTML = "Clearing the record from Registered";
+      }
+    </script> -->
  </body>
 </html>
