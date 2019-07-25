@@ -1,2 +1,102 @@
-dfvd {
+/********** Common Properties **********/
+* {
+    margin: 0; 
+    box-sizing: border-box; 
 }
+.clear {
+   clear:both;
+ }
+.container-outer {
+    /* width: 1200px; */
+    margin: 0 auto;
+    background-color: azure;
+ }
+.container-inner{
+    margin: 0px 24px;
+ }
+ul {
+    list-style-type: none;
+ }
+li {
+    float:left;
+ }
+ /********** Header Properties **********/
+header {
+    /* width: 1200px; */
+    background-color: aliceblue;
+  }
+.image {
+    float: left;
+}
+nav {
+    /* width: 143px; */
+    margin-top: 43px;
+    float: right;
+  }
+nav ul {
+    padding-left: 0px;
+  }
+nav a {
+    padding:10px;
+  }
+ul a{
+    width: 40px;
+    height: 40px;
+  }
+.li1 {
+  margin-right: 15px;
+}
+.li2 {
+    margin-right: 8px;
+  }
+.reg {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+}
+.logout {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+}
+/********** Form Properties **********/
+form {
+    text-align: center;
+    padding: 60px;
+}
+h2 {
+    text-align: center;
+    color: blue;
+    text-transform: uppercase;
+    /*Css Animation*/
+  animation-name: example;
+  animation-duration: 4s;
+}
+@keyframes example {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+  }
+.box {
+    border: 1px solid blueviolet;
+    margin: 0px 400px;
+    border-radius: 18%;
+}
+.submitting {
+    background-color: cornflowerblue;
+    font-size: 20px;
+    color: cornsilk;
+  }
+
+/********** Footer Properties **********/
+footer {
+    background-color: aliceblue;
+  }
+.container-inner p {
+    font-size: 18px;
+    text-align: right;
+    font-family: 'Lato';
+    font-weight: 400;
+    color: blueviolet;
+    padding-top: 18px;
+    padding-bottom: 18px;     
+  }

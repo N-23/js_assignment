@@ -1,2 +1,66 @@
 <!DOCTYPE html>
+<html>
+ <head>
+    <meta charaset="utf-8"><!--meta tags are used for description, keywords, author info and they are also useful for search engines-->
+    <title>Todo App</title>
+    <link rel="stylesheet" type="text/css" href="CSS/login_css.css" />
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400i&display=swap" rel="stylesheet"><!--400:Regular Italic-->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400i&display=swap" rel="stylesheet"><!--400:Regular Italic-->
+                
+    <!-- <script type="text/javascript" src="jquery-3.4.1.min.js"></script> -->
+    <script src="login.js"></script>
+ </head>
+
+ <body>
+  <div class="container-outer">
+   <header>
+          <div class="container-inner">
+            <div class="image">
+             <img src="Images/output-onlinepngtools.png" alt="todo image">
+             <div class="clear"></div>
+            </div>
+            
+            <nav>
+             <ul>
+              <li class="li1">
+                <a href="registration.html">
+                 <span class="reg">Registration</span>
+                </a>
+              </li>  
+             </ul>
+            </nav>
+            <div class="clear"></div> 
+    
+          </div>
+   </header><br><br>
+    
+    <h2>Login Form</h2><br><br>
+    <section>
+     <div class="box">
+      <form onsubmit="myfunction()" id="demo" name="myForm" action="#" onsubmit="return validateForm()" method="post"><!--action_page.php-->
+        <label for="Email">Email Id:<abbr title="Required" style="color:red">*</abbr></label>
+        <input id="email" name="username" required="required" size="30" spellcheck="false" title="Your EmailId" type="username" value="" placeholder="Valid EmailId"/>
+        <br>
+        <br>
+        <br>
+        <br>
+        <label for="password">Password:<abbr title="Required" style="color:red">*</abbr></label>
+        <input type="password" id="password" name="password" placeholder="Password" required /> 
+        <br>
+        <br>
+        <br>
+        <br>
+        <input onclick="myFunction()" type="submit" name="submit" value="Submit" id="sub_id"  class="submitting" />
+      </form>    
+     </div>
+    </section>      
+    
+    <footer>
+        <div class="container-inner">
+         <p>© 2019 TODO APP.ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+  </div>
+        
+ </body>
 </html>

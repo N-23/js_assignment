@@ -39,13 +39,17 @@
      
       <section>
         <div class=box>
-          <form id="demo" name="myForm" action="#" onsubmit="return validateForm()" method="post"><!--action_page.php-->
+          <form onsubmit="myfunction()" id="demo" name="myForm" action="#" onsubmit="return validateForm()" method="post"><!--action_page.php-->
             <div class="form-control"> 
               <label class="header">Profile Photo:</label>
-              <input id="image" type="file" name="profile_photo" placeholder="Photo" required="" capture />
+              <input id="image" type="file" name="profile_photo" placeholder="Photo"capture />
             </div>
             <label for="email">Email Id:<abbr title="Required" style="color:red">*</abbr></label>
-            <input placeholder="Valid EmailId"aria-required="true" id="email" name="email" required="required" size="30" spellcheck="false" title="Your email address" type="email" value="" />
+            <input placeholder="Valid EmailId" aria-required="true" id="email" name="email" required="required" size="30" spellcheck="false" title="Your email address" type="email" value="" />
+            <br>
+            <br>
+            <label for="password">Password:<abbr title="Required" style="color:red">*</abbr></label>
+            <input placeholder="Password" aria-required="true" id="password" name="password" required="required" type="password" value ="" /> 
             <br>
             <br>
             <label for="userfirstname">First name:</label>
@@ -75,7 +79,7 @@
             <br>
             <!-- <button onclick="myFunction()" class="register">Registration</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button onclick="myFunction1()" class="clear">Clear</button> -->
-            <input type="button" name="submit" value="Registration" id="reg_id" onclick="myFunction()" class="register" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="submit" name="submit" value="Registration" id="reg_id" onsubmit="myFunction()" class="register" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="button" name="submit" value="Clear" id="cl_id" onclick="myFunction1()" class="clear" />
           </form>
         </div>
@@ -89,13 +93,6 @@
         </div>
       </footer>
     </div>
-    <!-- <script>
-      function myFunction() {
-        document.getElementsByClassName("register").innerHTML = "Succesfully Registered";
-      }
-      function myFunction1() {
-        document.getElementsByClassName("clear").innerHTML = "Clearing the record from Registered";
-      }
-    </script> -->
+
  </body>
 </html>
