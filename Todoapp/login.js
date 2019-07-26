@@ -13,19 +13,20 @@ function myFunction() {
 
     if (!userArray) {
         alert("Nothing stored!");
-        event.preventDefault();
         return;
     }
     for (var i = 0; i < userArray.length; i++) {
         var entry = userArray[i];
-        var email = entry.email;
-        var password = entry.password;
-        if (email == email && password == password) {
+        var em = entry.email;
+        var pass = entry.password;
+        if (em == email && pass == password) {
          alert("Successfully logged in using credentials!");
+         sessionStorage.setItem("userid",i);
          return;
-    }
-    alert('Invalid Username or Password! Please try again.');
-    event.preventDefault();
-    window.location="Login.html";
+         }
+        else {
+        alert('Invalid Username or Password! Please try again.');
+        window.location="Html/login.html";
+        }
     }
 }    

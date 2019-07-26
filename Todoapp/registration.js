@@ -28,6 +28,7 @@ alert("Record Successfully Saved");
 
 /******** Button properties ********/
 function myFunction() {
+    window.location("profile.html");
       var email = document.getElementById("email").value;
       var pass = document.getElementById("password").value;
       var firstname = document.getElementById("firstname").value;
@@ -95,8 +96,7 @@ function myFunction() {
               alert('Lastname must have alphabet characters only');
               lastname.focus();
               return false;
-              }
-            
+              }    
     }
     function myFunction1() {
       document.getElementById("demo").reset();
