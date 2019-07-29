@@ -1,3 +1,77 @@
 <!DOCTYPE html>
 <html>
+ <head>
+    <meta charaset="utf-8"><!--meta tags are used for description, keywords, author info and they are also useful for search engines-->
+    <title>Todo App</title>
+    <link rel="stylesheet" type="text/css" href="CSS/registration_css.css" />
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400i&display=swap" rel="stylesheet"><!--400:Regular Italic-->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400i&display=swap" rel="stylesheet"><!--400:Regular Italic-->
+    
+    <script src="todo.js" text="text/javascript"></script>
+
+ </head>
+ <body onload="showUsersToDoOnPageLoad();">
+  <div class="container-outer">
+    <header>
+     <div class="container-inner">
+      <div class="image">
+        <img src="Images/output-onlinepngtools.png" alt="todo image">
+        <div class="clear"></div>
+      </div>
+                
+      <nav>
+        <ul>
+         <li class="li1">
+          <a href="profile.html">
+           <span class="profile">Profile Page</span>
+          </a>
+         </li>   
+         <li class="li2">
+          <a href="login.html">
+           <span class="logout" onclick="LogoutUser();">Logout</span>
+          </a>
+         </li>  
+        </ul>
+      </nav>
+      <div class="clear"></div> 
+        
+     </div>
+    </header><br><br>
+        
+    <h2>Todo</h2><br><br>
+             
+    <section class="section_1">
+     <div class="box">
+      <div class="leftfilter" id="leftfilter">
+
+       <label for="">Filter By :</label>
+       <select name="filters" id="filteredby" onchange="filterToDo()">
+        <option value="select" selected>Select</option>
+        <option value="categories">Categories</option>
+        <option value="status">Status</option>
+        <option value="date">Date</option>
+       </select>
+
+       <select name="filters" id="filter_status" onchange="filterToDoByStatus();">
+        <option value="select" selected>Select</option>
+        <option value="done">isDone</option>
+        <option value="pending">isPending</option><!--due date greater than current-->
+        </select>
+
+
+      </div>
+  
+     </div>
+     <br>
+     <br>
+    </section>
+              
+    <footer>
+     <div class="container-inner">
+      <p>© 2019 TODO APP.ALL RIGHTS RESERVED.</p>
+     </div>
+    </footer>
+  </div>
+       
+ </body>
 </html>

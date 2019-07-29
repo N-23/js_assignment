@@ -40,6 +40,11 @@ nav a {
     padding:10px;
   }
 /********** Form Properties **********/
+h1 {
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 60px;
+}
 h2 {
     text-align: center;
     color: blue;
@@ -98,6 +103,35 @@ label.header {
 }
 .form-control {
   margin-bottom: 20px;
+}
+#email, #address, #password, #confirmPassword{
+  width: 42.5%;
+}
+form figure{
+  /* background-color: red; */
+  padding-bottom: 20px;
+}
+form figure input[type="file"]{
+  margin-top: 10px;
+  height: 30px;
+}
+button[type="button"]{
+  padding: 10px 15px;
+  border-radius: 15px;
+  background-color: #e64031;
+  color: black;
+  margin: 10px 10px 0px;
+  display: inline-block;
+}
+.radio input{
+  margin: 0px 5px 0px 40px;
+}
+#UserImage{
+  margin: 20px 0;
+}
+input{
+  height: 40px;
+  vertical-align: middle;
 }
 /********** Footer Properties **********/
 footer {

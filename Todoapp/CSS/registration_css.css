@@ -57,6 +57,10 @@ ul a{
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
 }
+input{
+  height: 40px;
+  vertical-align: middle;
+}
 /********** Form Properties **********/
 h2 {
     text-align: center;
@@ -115,6 +119,23 @@ label.header {
 }
 .form-control {
   margin-bottom: 20px;
+}
+#email, #address, #password, #confirmPassword{
+  width: 42.5%;
+}
+form figure{
+  /* background-color: red; */
+  padding-bottom: 20px;
+}
+form figure input[type="file"]{
+  margin-top: 10px;
+  height: 30px;
+}
+.radio {
+  margin-right: 156px;
+}
+#ProfileImage {
+  margin-left: 52px
 }
 /********** Footer Properties **********/
 footer {

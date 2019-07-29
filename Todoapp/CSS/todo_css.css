@@ -14,14 +14,11 @@
 .container-inner{
     margin: 0px 24px;
  }
- ul {
+ul {
     list-style-type: none;
  }
 li {
     float:left;
- }
- script {
-   display: inline-block;
  }
 /********** Header Properties **********/
 header {
@@ -49,44 +46,46 @@ ul a{
 .li1 {
   margin-right: 15px;
 }
-.li1 a {
-  border: 2px solid blue;
-}
 .li2 {
     margin-right: 8px;
   }
-  .li2 a {
-    border: 2px solid blue;
+.profile {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+}
+.logout {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+}
+/********** Form Properties **********/
+form {
+    text-align: center;
+    padding: 60px;
+}
+h2 {
+    text-align: center;
+    color: blue;
+    text-transform: uppercase;
+    /*Css Animation*/
+  animation-name: example;
+  animation-duration: 4s;
+}
+@keyframes example {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
   }
-.login {
-    font-family: 'Rubik', sans-serif;
-    font-weight: 400;
-    color: blueviolet;
-}
-.registration {
-    font-family: 'Rubik', sans-serif;
-    font-weight: 400;
-    color: blueviolet;
-}
-/********** Section-1 and Section-2 Properties **********/
-.section1 {
-    margin-top: 40px;
-    display: inline-block;
-}
-.image1 {
-    float: left;
-}
-.image2 {
-    margin-top: 24px;
-    margin-left: 60px;
-    float: right;
+.box {
+    border: 1px solid blueviolet;
+    margin: 0px 400px;
+    border-radius: 18%;
 }
 /********** Footer Properties **********/
 footer {
-    margin-top: 40px;
     background-color: aliceblue;
   }
-  .container-inner p {
+.container-inner p {
     font-size: 18px;
     text-align: right;
     font-family: 'Lato';
@@ -94,4 +93,4 @@ footer {
     color: blueviolet;
     padding-top: 18px;
     padding-bottom: 18px;     
-   }
+  } 

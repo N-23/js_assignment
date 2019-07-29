@@ -3,12 +3,12 @@
 
  <head>
   <meta charaset="utf-8"><!--meta tags are used for description, keywords, author info and they are also useful for search engines-->
-  <title>Todo App</title>
+  <title>Registration</title>
   <link rel="stylesheet" type="text/css" href="CSS/registration_css.css" />
   <link href="https://fonts.googleapis.com/css?family=Rubik:400i&display=swap" rel="stylesheet"><!--400:Regular Italic-->
   <link href="https://fonts.googleapis.com/css?family=Nunito:400i&display=swap" rel="stylesheet"><!--400:Regular Italic-->
   
-  <script src="Js/registration.js"></script>
+  <script src="registration.js" type="text/javascript"></script>
   
  </head>
  
@@ -24,7 +24,7 @@
         <nav>
          <ul>
           <li class="li1">
-            <a href="Html/login.html">
+            <a href="login.html">
              <span class="login">Login</span>
             </a>
           </li>  
@@ -38,17 +38,23 @@
       <h2>Registration Form</h2><br><br>
      
       <section>
-        <div class=box>
+        <div class="box">
           <form onsubmit="myfunction()" id="demo" name="myForm" action="#" onsubmit="return validateForm()" method="post"><!--action_page.php-->
-            <div class="form-control"> 
+            <!--<div class="form-control"> 
               <label class="header">Profile Photo:</label>
               <input id="image" type="file" name="profile_photo" placeholder="Photo"capture />
-            </div>
-            <label for="email">Email Id:<abbr title="Required" style="color:red">*</abbr></label>
+            </div>-->
+            <figure>
+              <img id="UserImage" src="Images/pi_1.jpg" alt="Profile Image" width="150" height="150"><br>
+              <input id="ProfileImage" accept="Images/*" onchange="UploadProfilePhoto();">
+            </figure>
+            <!-- Email Id-->
+            <label for="email">Email Id:<sup title="Required" style="color:red">*</sup></label>
             <input placeholder="Valid EmailId" aria-required="true" id="email" name="email" required="required" size="30" spellcheck="false" title="Your email address" type="email" value="" />
             <br>
             <br>
-            <label for="password">Password:<abbr title="Required" style="color:red">*</abbr></label>
+            <!-- Password-->
+            <label for="password">Password:<sup title="Required" style="color:red">*</sup></label>
             <input placeholder="Password" aria-required="true" id="password" name="password" required="required" type="password" value ="" /> 
             <br>
             <br>
@@ -62,12 +68,12 @@
             <input type="text" id="lastname" name="lastname" placeholder="Name" required />
             <br>
             <br>
-            <div class="genderclass">
-            <label for="gender">Gender:</label><br>
-            <!-- <input type="text" name="gender"> -->
-            <input type="radio" name="gender" value="male" class="mclass" />  Male<br>
-            <input type="radio" name="gender" value="female" class="fclass" /> Female<br>
-            <input type="radio" name="gender" value="other" class="oclass" /> Other
+            <div class="radio">
+             <label for="gender">Gender:</label><br>
+             <!-- <input type="text" name="gender"> -->
+             <input type="radio" name="gender" value="male" class="mclass" />  Male<br>
+             <input type="radio" name="gender" value="female" class="fclass" /> Female<br>
+             <input type="radio" name="gender" value="other" class="oclass" /> Other
             </div>
             <br>
             <br>
@@ -79,8 +85,8 @@
             <br>
             <!-- <button onclick="myFunction()" class="register">Registration</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button onclick="myFunction1()" class="clear">Clear</button> -->
-            <input type="submit" name="submit" value="Registration" id="reg_id" onsubmit="myFunction()" class="register" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="button" name="submit" value="Clear" id="cl_id" onclick="myFunction1()" class="clear" />
+            <input type="submit" name="submit" value="Registration" id="reg_id" onsubmit="Validation()" class="register" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" name="submit" value="Clear" id="cl_id" onclick="myFunction()" class="clear" />
           </form>
         </div>
         <br>

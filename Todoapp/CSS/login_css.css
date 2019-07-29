@@ -53,10 +53,6 @@ ul a{
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
 }
-.logout {
-    font-family: 'Rubik', sans-serif;
-    font-weight: 400;
-}
 /********** Form Properties **********/
 form {
     text-align: center;
@@ -86,7 +82,10 @@ h2 {
     font-size: 20px;
     color: cornsilk;
   }
-
+  input{
+    height: 40px;
+    vertical-align: middle;
+}
 /********** Footer Properties **********/
 footer {
     background-color: aliceblue;

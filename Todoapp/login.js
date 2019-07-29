@@ -1,32 +1,89 @@
-/******** Submit properties ********/
-function myFunction() {
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
+/******** validation ********/ 
+function Validation() 
+{   
+    var emailId = document.getElementById("email").value;
+    var passwd = document.getElementById("password").value;
 
-    var userArray=JSON.parse(localStorage.getItem("userrecordarray"));
+    var RegexEmailId = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    var RegexPasswd = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
 
-    console.log(typeof(userArray));
-
-    userArray.pop();
-    myJSON = JSON.stringify(userArray);
-    localStorage.getItem("userrecordarray", myJSON);
-
-    if (!userArray) {
-        alert("Nothing stored!");
-        return;
+    if((emailId.match(RegexEmailId)) &&
+       (passwd.match(RegexPasswd)))
+    {  
+        var bRet = FetchItems(emailId,passwd)
+        if(bRet == true)
+        {
+            window.location = 'todo.html';
+        }
+        else
+        {
+            return;
+        }
+    }   
+    else if(!emailId.match(RegexEmailId))   
+    {
+        alert("Invalid Email");
     }
-    for (var i = 0; i < userArray.length; i++) {
-        var entry = userArray[i];
-        var em = entry.email;
-        var pass = entry.password;
-        if (em == email && pass == password) {
-         alert("Successfully logged in using credentials!");
-         sessionStorage.setItem("userid",i);
-         return;
-         }
-        else {
-        alert('Invalid Username or Password! Please try again.');
-        window.location="Html/login.html";
+    else if(!passwd.match(RegexPasswd))    
+    {
+        alert("Password must be 8-15 characters which contains at least a capital letter, a small letter, a number and a special symbol");
+    }
+}
+function FetchItems(emailId,passwd)
+{   
+    var userArray = JSON.parse(localStorage.getItem("userrecordarray"));
+    if(userArray == null)
+    {
+        alert("No records found");
+        return false;
+    }
+    else
+    {
+        var flag = true;
+        var index = 0;
+        for(index=0; index<userArray.length; index++)   
+        {
+            if((userArray[index].emailUser) === emailId) 
+            {
+                var decryptedPassword = atob(CodeArray[index].passwordUser);
+                if(decryptedPassword == passwd)
+                {
+                    sessionStorage.setItem("loggedInUser",index);     
+                    flag = true;
+                    break;
+                }
+                else if(decryptedPassword != passwd)   
+                {
+                    alert("Wrong Password");
+                    flag = false;
+                    break;
+                }        
+            }
+            else
+            {
+                flag == false;
+            }
+        }
+        if((index == userArray.length) && (flag == false)) 
+        {   
+            alert("No records found!!!");
+            return false;
+        }
+        else if(flag == false)  
+        {
+            return false;
+        }
+        else    
+        {
+            return true;
         }
     }
-}    
+}
+(function (){
+    document.addEventListener('keypress',function(event){
+        if(event.keyCode == 13)
+        {
+            Validity();
+        }
+    })
+})();

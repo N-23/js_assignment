@@ -25,80 +25,120 @@ myJSON = JSON.stringify(userArray);
 localStorage.setItem("userrecordarray", myJSON);
 alert("Record Successfully Saved");
 }
+/******** validation ********/
+function Validation()
+{
+    var emailId = document.getElementById("email").value;
+    var passwd = document.getElementById("password").value; 
+    var firstName = document.getElementById("firstname").value;
+    var lastName = document.getElementById("lastname").value;
+    var address = document.getElementById("address").value;
+    var genderType = document.querySelector('input[name="gender"]:checked').value;
 
-/******** Button properties ********/
+    var regexFirstName = /^([a-zA-Z]{3,})$/;
+    var regexLastName = /^[a-zA-Z]{3,}$/;
+    var regexEmailid = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    var regexPasswd = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+
+    if((firstName.match(regexFirstName)) &&
+       (lastName.match(regexLastName)) &&
+       (emailId.match(regexEmailid)) &&
+       (passwd.match(regexPasswd)) &&
+       (confPasswd.match(passwd)))
+    {   
+        var bRet = StoreItems(firstName,lastName,address,emailId,passwd,genderType)
+
+        if(bRet == true)
+        {
+            alert("Registeration successfully");
+            sessionStorage.removeItem("displayPicture");
+            window.location = 'login.html';
+        }
+    }
+    else if(!firstName.match(regexFirstName))
+    {
+        alert("First Name must have alphabet charaters only");
+    }
+    else if(!lastName.match(regexLastName))
+    {
+        alert("Last Name must have alphabet charaters only");
+    }
+    else if(!emailId.match(regexEmailid))
+    {
+        alert("Email Id should be entered properly");
+    }
+    else if(!passwd.match(regexPasswd))
+    {
+        alert("Password must be 8-15 characters which contains at least a capital letter, a small letter, a number and a special symbol");
+    }
+}
+function StoreItems(firstName,lastName,address,emailId,passwd,genderType)
+{   
+    let ToDoList = new Array();
+    if(sessionStorage.getItem('displayPicture') === null)
+    {
+        alert("Please upload your profile picture");
+        return false;
+    }
+    var encryptedPassword = btoa(passwd);
+    var profilePicture = sessionStorage.displayPicture;
+    var userInfo = {
+        'firstNameUser' : firstName,
+        'lastNameUser' : lastName,
+        'addressUser' : address,
+        'emailUser' : emailId,
+        'passwordUser' : encryptedPassword,
+        'genderUser': genderType,
+        'toDoUser' : ToDoList,
+        'displayPicture' : profilePicture
+    }
+    var userArray = JSON.parse(localStorage.getItem(''));
+    if(userArray == null)
+    {
+        userArray = [];
+        userArray.push(userInfo);
+        localStorage.setItem("localStorageArray",JSON.stringify(userArray));
+        return true;
+    }
+    else
+    {
+        var i=0;
+        for(i=0; i<userArray.length;i++)
+        {
+            if((userArray[i].emailUser) == emailId)
+            {
+                break;
+            }
+        }
+        if(i == userArray.length)
+        {   
+            userArray.push(userInfo);
+            localStorage.setItem("localStorageArray",JSON.stringify(userArray));
+            return true;
+        }
+        else
+        {
+            alert("Email ID already exists");
+            return false;
+        }
+    }
+}
+/******** profile photo ********/
+function UploadProfilePhoto()
+{
+    var Image = document.getElementById("profilePicture").files[0];
+    var imagereader = new FileReader();
+    imagereader.readAsDataURL(Image);
+    imagereader.onload = function()
+    {
+      var imgdata = imagereader.result;
+      sessionStorage.setItem("displayPicture",imgdata);
+      document.getElementById("UserImage").src = sessionStorage.displayPicture;
+    };
+    imagereader.onerror = function (error) {
+    };
+}
+/******** clear button ********/
 function myFunction() {
-    window.location("profile.html");
-      var email = document.getElementById("email").value;
-      var pass = document.getElementById("password").value;
-      var firstname = document.getElementById("firstname").value;
-      var lastname = document.getElementById("lastname").value;
-      var gender = document.getElementsByClassName("mclass").value;
-      var gender = document.getElementsByClassName("fclass").value;
-      var gender = document.getElementsByClassName("oclass").value; 
-      var address = document.getElementById("address").value;
-      // document.getElementsById("demo").innerHTML = "Succesfully Registered";
-     // if (validation()) {//Calling validation function
-       // document.getElementsById("demo").submit();//form submission
-        
-          //Email Id
-          var Email;
-          document.getElementById("email").innerHTML = Email;
-        
-          var email = "^(([-\w\d]+)(\.[-\w\d]+)*@([-\w\d]+)(\.[-\w\d]+)*(\.([a-zA-Z]{2,5}|[\d]{1,3})){1,2})$";
-          if(email.value.match(email)) {
-            alert('EmaliId matched with the pattern');
-            return true;
-          }
-          else {
-            alert('EmailId must match with the pattern');
-            email.focus();
-            return false;
-          }
-          //Password
-          var Pass;
-          document.getElementById("password").innerHTML = Pass;
-
-          var pass = "/^[A-Za-z]\w{7,14}$/";
-          if(password.value.match(pass)) {
-            alert('Password matched with the pattern');
-            return true;
-          }
-          else {
-            alert('Password must match with the pattern');
-            password.focus();
-            return false;
-          }
-          //First name
-          var allLetter;
-          document.getElementById("firstname").innerHTML = allLetter;
-          
-            var letters = /^[a-zA-Z0-9]+$/;
-            if(firstname.value.match(letters)) {
-              alert('Firstname matched with the pattern');
-              return true;
-            }
-            else {
-            alert('Firstname must have alphabet characters only');
-            firstname.focus();
-            return false;
-            }
-            //Last name 
-            var allLetters;
-            document.getElementById("lastname").innerHTML = allLetters;
-            
-              var letters = /^[a-zA-Z0-9]+$/;
-              if(lastname.value.match(letters)) {
-                alert('Lastname matched with the pattern');
-                return true;
-              }
-              else {
-              alert('Lastname must have alphabet characters only');
-              lastname.focus();
-              return false;
-              }    
-    }
-    function myFunction1() {
-      document.getElementById("demo").reset();
-      //document.getElementsById("demo").innerHTML = "Clearing the record from Registered";
-    }
+  document.getElementById("demo").reset();
+}
