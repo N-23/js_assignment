@@ -11,13 +11,18 @@ myObj.gender=document.getElementsByClassName("mclass").value;
 myObj.gender=document.getElementsByClassName("fclass").value;
 myObj.gender=document.getElementsByClassName("oclass").value;
 myObj.address=document.getElementById("address").value;
+
+
 var userArray=JSON.parse(localStorage.getItem("userrecordarray"));
 if(userArray== null)
 {
  userArray=new Array();
 }
 
+ userTodoArray=new Array();
+
 console.log(typeof(userArray));
+console.log(typeof(userTodoArray));
 
 userArray.push(myObj);
 myJSON = JSON.stringify(userArray);
@@ -33,21 +38,15 @@ function Validation()
     var firstName = document.getElementById("firstname").value;
     var lastName = document.getElementById("lastname").value;
     var address = document.getElementById("address").value;
-    var genderType = document.querySelector('input[name="gender"]:checked').value;
+    var genderType = document.querySelector('input[name="gender"]').value;
 
     var regexFirstName = /^([a-zA-Z]{3,})$/;
     var regexLastName = /^[a-zA-Z]{3,}$/;
     var regexEmailid = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
     var regexPasswd = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
 
-    if((firstName.match(regexFirstName)) &&
-       (lastName.match(regexLastName)) &&
-       (emailId.match(regexEmailid)) &&
-       (passwd.match(regexPasswd)) &&
-       (confPasswd.match(passwd)))
-    {   
+    if((firstName.match(regexFirstName)) && (lastName.match(regexLastName)) && (emailId.match(regexEmailid)) && (passwd.match(regexPasswd))) {  
         var bRet = StoreItems(firstName,lastName,address,emailId,passwd,genderType)
-
         if(bRet == true)
         {
             alert("Registeration successfully");
@@ -80,7 +79,7 @@ function StoreItems(firstName,lastName,address,emailId,passwd,genderType)
         alert("Please upload your profile picture");
         return false;
     }
-    var encryptedPassword = btoa(passwd);
+    // var encryptedPassword = btoa(passwd);
     var profilePicture = sessionStorage.displayPicture;
     var userInfo = {
         'firstNameUser' : firstName,
@@ -90,9 +89,10 @@ function StoreItems(firstName,lastName,address,emailId,passwd,genderType)
         'passwordUser' : encryptedPassword,
         'genderUser': genderType,
         'toDoUser' : ToDoList,
-        'displayPicture' : profilePicture
+        'displayPicture' : profilePicture,
+        'userTodoArray': []
     }
-    var userArray = JSON.parse(localStorage.getItem(''));
+    var userArray = JSON.parse(localStorage.getItem("userrecordarray"));
     if(userArray == null)
     {
         userArray = [];

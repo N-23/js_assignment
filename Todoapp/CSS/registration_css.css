@@ -103,11 +103,13 @@ form {
   background-color: cornflowerblue;
   font-size: 20px;
   color: cornsilk;
+  cursor: pointer;
 }
 .clear {
   background-color: cornflowerblue;
   font-size: 20px;
   color: cornsilk;
+  cursor: pointer;
 }
 label.header {
   width: 215px;

@@ -10,6 +10,7 @@
     <script src="todo.js" text="text/javascript"></script>
 
  </head>
+
  <body onload="showUsersToDoOnPageLoad();">
   <div class="container-outer">
     <header>
@@ -22,7 +23,7 @@
       <nav>
         <ul>
          <li class="li1">
-          <a href="profile.html">
+          <a href="profilepage.html">
            <span class="profile">Profile Page</span>
           </a>
          </li>   
@@ -40,11 +41,11 @@
         
     <h2>Todo</h2><br><br>
              
-    <section class="section_1">
+    <section class="section1">
      <div class="box">
       <div class="leftfilter" id="leftfilter">
 
-       <label for="">Filter By :</label>
+       <label>Filter By:</label>
        <select name="filters" id="filteredby" onchange="filterToDo()">
         <option value="select" selected>Select</option>
         <option value="categories">Categories</option>
@@ -52,18 +53,81 @@
         <option value="date">Date</option>
        </select>
 
-       <select name="filters" id="filter_status" onchange="filterToDoByStatus();">
+       <select name="filters" id="statusfilter" onchange="filterToDoByStatus();">
         <option value="select" selected>Select</option>
-        <option value="done">isDone</option>
-        <option value="pending">isPending</option><!--due date greater than current-->
-        </select>
+        <option value="done">IsDone</option>
+        <option value="pending">IsPending</option><!--due date greater than current-->
+       </select>
 
+       <select name="filters" id="categoriesfilter" onchange="filterToDoByCategories();">
+        <option value="select" selected>Select</option>
+        <option value="Home">Home</option>
+        <option value="Personal">Personal</option>
+        <option value="Company">Company</option>
+       </select>
 
+       <div id="datefilter"><!--date range-->
+        <label for="">From:</label>
+        <input type="date" id="StartDatefilter" required="required">
+        <label for="">To:</label>
+        <input type="date" id="DueDatefilter" required="required">
+        <button type="button" id="search_by_date" onclick="filterToDoByDate();">Search</button>
+       </div>
+
+       <div id="buttons">
+        <button type="button" id="edit" onclick="editToDoItem();">Edit</button>
+        <button type="button" id="delete" onclick="deleteToDoItem();">Delete</button>
+        <button type="button" id="status" onclick="markDone();">Mark as done</button>
+       </div>
+
+       <table id="todotable">
+        <caption>Todo table</caption>
+        <thead>
+         <tr>
+          <th>Selected</th>
+          <th>Names</th>
+          <th>Start Date</th>
+          <th>Due Date</th>
+          <th>Public</th>      
+          <th>Categories</th>
+          <th>Description</th>
+          <th>Status</th>
+         </tr>
+        </thead>
+
+        <tbody id="todotable_body">
+        </tbody>
+
+       </table>
+
+       <h1 id="nodatafound">No Data Found</h1>
+       
       </div>
-  
+
+      <div class="rightfilter" id="rightfilter">
+       <form id="add">
+        <input type="text" placeholder="Title" id="Input" required="required"><br>
+        <label>Start Date:</label>
+        <input type="date" id="startdate" required="required"><br>
+        <label>Due Date:</label>
+        <input type="date" id="duedate" required="required"><br>
+        <div class="public">
+        <label>Public:</label>
+        <input type="checkbox" id="public">
+        </div>
+        <label>Categories:</label>
+        <input type="radio" name="categories" value="Home">Home
+        <input type="radio" name="categories" value="Personal">Personal
+        <input type="radio" name="categories" value="Company">Company
+        <textarea id="description" rows="18" cols="10" placeholder="User's description..."></textarea><br>
+        <button type="button" id="add" onclick="addToDoItem();">Add</button>
+        <button type="submit" id="save" onclick="saveChanges();">Save Changes</button>
+        <button type="reset">Reset</button>
+       </form>
+      </div>
+      <div class="clear"></div>
+
      </div>
-     <br>
-     <br>
     </section>
               
     <footer>

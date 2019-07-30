@@ -51,8 +51,8 @@ h2 {
     text-transform: uppercase;
     /*Css Animation*/
     margin-top: 30px;
-  animation-name: example;
-  animation-duration: 4s;
+    animation-name: example;
+    animation-duration: 4s;
 }
 @keyframes example {
     0%   {background-color: red;}
@@ -118,8 +118,9 @@ form figure input[type="file"]{
 button[type="button"]{
   padding: 10px 15px;
   border-radius: 15px;
-  background-color: #e64031;
-  color: black;
+  background-color: blueviolet;
+  cursor: pointer;
+  color: blue;
   margin: 10px 10px 0px;
   display: inline-block;
 }

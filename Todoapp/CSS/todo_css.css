@@ -57,18 +57,18 @@ ul a{
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
 }
-/********** Form Properties **********/
+/********** section Properties **********/
 form {
-    text-align: center;
-    padding: 60px;
+  text-align: center;
+  padding: 60px;
 }
 h2 {
     text-align: center;
     color: blue;
     text-transform: uppercase;
     /*Css Animation*/
-  animation-name: example;
-  animation-duration: 4s;
+    animation-name: example;
+    animation-duration: 4s;
 }
 @keyframes example {
     0%   {background-color: red;}
@@ -76,10 +76,144 @@ h2 {
     50%  {background-color: blue;}
     100% {background-color: green;}
   }
-.box {
+/* .box {
     border: 1px solid blueviolet;
     margin: 0px 400px;
     border-radius: 18%;
+} 
+#todotable {
+  border-spacing: 5px;
+}
+#todotable, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+} 
+#searchbar{
+  width: 100%;
+}*/
+.section1 input[type="text"]{
+  height: 40px;
+  width : 50%;
+}
+.box{
+  padding-top: 30px;
+  background-color: blueviolet;
+  padding-bottom: 30px;
+}
+button[type="button"],button[type="reset"]{
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: blueviolet;
+  color: blue;
+  margin-left: 10px;
+  display: inline-block;
+  margin: 20px 10px;
+  cursor: pointer;
+}
+.leftfilter{
+  width: 65%;
+  display: inline-block;
+  line-height: 25px;
+}
+.rightfilter{
+  text-align: center;
+  width: 35%;
+  float: right;
+}
+.rightfilter{
+  text-align: center;
+  padding: 10px 20px 10px 20px;
+  border-left: 2px solid black;
+}
+.rightfilter input[type="text"]{
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+}
+.rightfilter input[type="date"]{
+  width: 50%;
+  height: 40px;
+  margin-bottom: 20px;
+}
+.rightfilter label{
+  margin-right: 10px;
+}
+.rightfilter input[type="checkbox"], .rightfilter input[type="radio"]{
+  vertical-align: middle;
+  margin-right: 5px;
+  margin-left: 20px;
+}
+.rightfilter textarea{
+  margin-top: 20px;
+  width: 100%;
+}
+.public{
+  margin-bottom: 20px;
+}
+.leftfilter{
+  padding: 10px 20px 10px 20px;
+}
+#todotable{
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  border: 1px solid blue;
+  border-collapse: collapse;
+  border-spacing: 5px;
+}
+#todotable th,#todotable td{
+  border: 1px solid blue;
+  border-collapse: collapse;
+  padding: 10px;
+}
+#save{
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: blue;
+  background-color: blueviolet;
+  margin-left: 10px;
+  display: inline-block;
+  display: none;
+  cursor: pointer;
+}
+#todotable button{
+  width: 80%;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: blueviolet;
+  color: blue;
+  display: inline-block;
+  cursor: pointer;
+}
+#categoriesfilter, #statusfilter{
+  padding: 5px 10px; 
+  margin-left: 10px;
+  border-radius: 10px;
+  display: none;
+}
+#datefilters{
+  margin-left: 5px;
+  display: none;
+}
+#filteredby{
+  border-radius: 10px;
+  color: blueviolet;
+  margin-left: 10px;
+  display: inline-block;
+  padding: 5px 10px;
+}
+#datefilters input{
+  height: 33px;
+  width: 30%;
+}
+#noDataFound{
+  display: none;
+  text-align: center;
+  font-size: 50px;
+  color: blueviolet;
 }
 /********** Footer Properties **********/
 footer {
