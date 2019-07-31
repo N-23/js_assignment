@@ -108,18 +108,29 @@ function setLoggedInUserValues()
         document.getElementsByName("gender")[2].checked = true;
     }
 }
-function uploadProfilePicture()
-{
-    var Image = document.getElementById("profilePicture").files[0];
-    var imageReader = new FileReader();
-    imageReader.readAsDataURL(Image);
-    imageReader.onload = function () {
-        var imgData = imageReader.result;
-        sessionStorage.setItem("displayPicture",imgData);
-        document.getElementById("UserImage").src = sessionStorage.displayPicture;
+// function uploadProfilePhoto()
+// {
+//     var Image = document.getElementById("ProfileImage").files[0];
+//     var imageReader = new FileReader();
+//     imageReader.readAsDataURL(Image);
+//     imageReader.onload = function () {
+//         var imgData = imageReader.result;
+//         sessionStorage.setItem("displayPicture",imgData);
+//         document.getElementById("ProfileImage").src = sessionStorage.displayPicture;
+//     };
+//     imageReader.onerror = function (error) {
+//     };
+// }
+var UploadProfilePhoto = function(file) {
+    var input = file.target;
+
+    var reader = new FileReader();
+    reader.onload = function() {
+      var dataURL = reader.result;
+      var output = document.getElementById("ProfileImage");
+      output.src = dataURL;
     };
-    imageReader.onerror = function (error) {
-    };
+    reader.readAsDataURL(input.files[0]);
 }
 (function (){
     document.addEventListener('keypress',function(event){

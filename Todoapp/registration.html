@@ -5,6 +5,8 @@
   <meta charaset="utf-8"><!--meta tags are used for description, keywords, author info and they are also useful for search engines-->
   <title>Registration</title>
   <link rel="stylesheet" type="text/css" href="CSS/registration_css.css" />
+  <link rel="stylesheet" href="CSS/normalise.css" type="text/css" />
+  <link rel="stylesheet" href="CSS/reset.css" type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Rubik:400i&display=swap" rel="stylesheet"><!--400:Regular Italic-->
   <link href="https://fonts.googleapis.com/css?family=Nunito:400i&display=swap" rel="stylesheet"><!--400:Regular Italic-->
   
@@ -22,15 +24,22 @@
         </div>
         
         <nav>
-         <ul>
+          <ul>
           <li class="li1">
-            <a href="login.html">
-             <span class="login">Login</span>
-            </a>
-          </li>  
-         </ul>
-        </nav>
-        <div class="clear"></div> 
+          <a href="login.html">
+           <span class="login">Login</span>
+          </a>
+          </li> 
+      
+          <li class="li2">
+          <a href="registration.html">
+           <span class="registration">Registration</span>
+          </a>
+          </li> 
+          </ul>
+      </nav>
+      <div class="clear"></div> 
+
 
       </div>
      </header><br><br>
@@ -39,14 +48,15 @@
      
       <section>
         <div class="box">
-          <form onsubmit="myfunction()" id="demo" name="myForm" action="#" onsubmit="return validateForm()" method="post"><!--action_page.php-->
+          <form id="demo" name="myForm">
             <!--<div class="form-control"> 
               <label class="header">Profile Photo:</label>
               <input id="image" type="file" name="profile_photo" placeholder="Photo"capture />
             </div>-->
             <figure>
-              <img id="UserImage" src="Images/pi_1.jpg" alt="Profile Image" width="150" height="150"><br>
-              <input id="ProfileImage" accept="Images/*" onchange="UploadProfilePhoto();">
+              <img id="UserImage" src="Images/pi_1.jpg" alt="Profile Image" width="100" height="100"><br>
+              <input  type="file" id="ProfileImage" accept="Images/*" onchange="UploadProfilePhoto(event);">
+              <img id="output" style="height:100px; width:100px;">
             </figure>
             <!-- Email Id-->
             <label for="email">Email Id:<sup title="Required" style="color:red">*</sup></label>

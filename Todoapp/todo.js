@@ -67,11 +67,11 @@ function addToDoItem()
 /********** user's todo pagefunction **********/
 function showUsersToDoOnPageLoad()
 {
-	// if((localStorage.getItem('localStorageArray') === null) || (sessionStorage.getItem('loggedInUser') === null))
-	// {
-	// 	//window.open = "todo.html";
-	// 	return;
-	// }
+	if((localStorage.getItem('localStorageArray') === null) || (sessionStorage.getItem('loggedInUser') === null))
+	{
+		//window.open = "todo.html";
+		return;
+	}
 	var userId =  sessionStorage.getItem("loggedInUser");
 	var userArray = JSON.parse(localStorage.getItem("userrecordarray"));
 	var userToDoArray = userArray[userId].toDoUser;

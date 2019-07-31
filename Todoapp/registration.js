@@ -1,38 +1,68 @@
 /******** userrecord ********/
-function myfunction() {
-userArray=new Array();
-var myObj, myJSON;
-myObj = { };
-myObj.email=document.getElementById("email").value;
-myObj.password=document.getElementById("password").value;
-myObj.firstname=document.getElementById("firstname").value;
-myObj.lastname=document.getElementById("lastname").value;
-myObj.gender=document.getElementsByClassName("mclass").value;
-myObj.gender=document.getElementsByClassName("fclass").value;
-myObj.gender=document.getElementsByClassName("oclass").value;
-myObj.address=document.getElementById("address").value;
+// function myfunction() {
+// userArray=new Array();
+// var myObj, myJSON;
+// myObj = { };
+// myObj.email=document.getElementById("email").value;
+// myObj.password=document.getElementById("password").value;
+// myObj.firstname=document.getElementById("firstname").value;
+// myObj.lastname=document.getElementById("lastname").value;
+// myObj.gender=document.getElementsByClassName("mclass").value;
+// myObj.gender=document.getElementsByClassName("fclass").value;
+// myObj.gender=document.getElementsByClassName("oclass").value;
+// myObj.address=document.getElementById("address").value;
 
 
-var userArray=JSON.parse(localStorage.getItem("userrecordarray"));
-if(userArray== null)
-{
- userArray=new Array();
-}
+// var userArray=JSON.parse(localStorage.getItem("userrecordarray"));
+// if(userArray== null)
+// {
+//  userArray=new Array();
+// }
 
- userTodoArray=new Array();
+//  userTodoArray=new Array();
 
-console.log(typeof(userArray));
-console.log(typeof(userTodoArray));
+// console.log(typeof(userArray));
+// console.log(typeof(userTodoArray));
 
-userArray.push(myObj);
-myJSON = JSON.stringify(userArray);
-// Storing data in local storage
-localStorage.setItem("userrecordarray", myJSON);
-alert("Record Successfully Saved");
-}
+// userArray.push(myObj);
+// myJSON = JSON.stringify(userArray);
+// // Storing data in local storage
+// localStorage.setItem("userrecordarray", myJSON);
+// alert("Record Successfully Saved");
+// }
 /******** validation ********/
 function Validation()
 {
+    // userArray=new Array();
+    // var myObj, myJSON;
+    // myObj = { };
+    // myObj.email=document.getElementById("email").value;
+    // myObj.password=document.getElementById("password").value;
+    // myObj.firstname=document.getElementById("firstname").value;
+    // myObj.lastname=document.getElementById("lastname").value;
+    // myObj.gender=document.getElementsByClassName("mclass").value;
+    // myObj.gender=document.getElementsByClassName("fclass").value;
+    // myObj.gender=document.getElementsByClassName("oclass").value;
+    // myObj.address=document.getElementById("address").value;
+
+    // var userArray=JSON.parse(localStorage.getItem("userrecordarray")); 
+    // if(userArray== null)
+    // {
+    // userArray=new Array();
+    // }
+
+    // userTodoArray=new Array();
+
+    // console.log(typeof(userArray));
+
+    // console.log(typeof(userTodoArray));
+
+    // userArray.push(myObj);
+    // myJSON = JSON.stringify(userArray);
+    // // Storing data in local storage
+    // localStorage.setItem("userrecordarray", myJSON);
+    // alert("Record Successfully Saved");
+
     var emailId = document.getElementById("email").value;
     var passwd = document.getElementById("password").value; 
     var firstName = document.getElementById("firstname").value;
@@ -46,12 +76,12 @@ function Validation()
     var regexPasswd = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
 
     if((firstName.match(regexFirstName)) && (lastName.match(regexLastName)) && (emailId.match(regexEmailid)) && (passwd.match(regexPasswd))) {  
-        var bRet = StoreItems(firstName,lastName,address,emailId,passwd,genderType)
-        if(bRet == true)
+        var store = StoreItems(firstName,lastName,address,emailId,passwd,genderType)
+        if(store == true)
         {
             alert("Registeration successfully");
-            sessionStorage.removeItem("displayPicture");
-            window.location = 'login.html';
+            localStorage.removeItem("displayPicture");
+            window.open("login.html");
         }
     }
     else if(!firstName.match(regexFirstName))
@@ -73,14 +103,14 @@ function Validation()
 }
 function StoreItems(firstName,lastName,address,emailId,passwd,genderType)
 {   
-    let ToDoList = new Array();
-    if(sessionStorage.getItem('displayPicture') === null)
+    var ToDoList = new Array();
+    if(localStorage.getItem('displayPicture') === null)
     {
-        alert("Please upload your profile picture");
+        alert("Upload your profile picture");
         return false;
     }
-    // var encryptedPassword = btoa(passwd);
-    var profilePicture = sessionStorage.displayPicture;
+    var encryptedPassword = btoa(passwd);
+    var ProfileImage = localStorage.displayPicture;
     var userInfo = {
         'firstNameUser' : firstName,
         'lastNameUser' : lastName,
@@ -89,8 +119,8 @@ function StoreItems(firstName,lastName,address,emailId,passwd,genderType)
         'passwordUser' : encryptedPassword,
         'genderUser': genderType,
         'toDoUser' : ToDoList,
-        'displayPicture' : profilePicture,
-        'userTodoArray': []
+        'displayPicture' : ProfileImage
+        // 'userTodoArray': []
     }
     var userArray = JSON.parse(localStorage.getItem("userrecordarray"));
     if(userArray == null)
@@ -124,19 +154,17 @@ function StoreItems(firstName,lastName,address,emailId,passwd,genderType)
     }
 }
 /******** profile photo ********/
-function UploadProfilePhoto()
-{
-    var Image = document.getElementById("profilePicture").files[0];
-    var imagereader = new FileReader();
-    imagereader.readAsDataURL(Image);
-    imagereader.onload = function()
-    {
-      var imgdata = imagereader.result;
-      sessionStorage.setItem("displayPicture",imgdata);
-      document.getElementById("UserImage").src = sessionStorage.displayPicture;
+    var UploadProfilePhoto = function(file) {
+    var input = file.target;
+
+    var reader = new FileReader();
+    reader.onload = function() {
+      var dataURL = reader.result;
+      var output = document.getElementById("output");
+      output.src = dataURL;
+      localStorage.setItem("displayPicture",dataURL);
     };
-    imagereader.onerror = function (error) {
-    };
+    reader.readAsDataURL(input.files[0]);
 }
 /******** clear button ********/
 function myFunction() {

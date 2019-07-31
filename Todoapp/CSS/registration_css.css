@@ -30,7 +30,7 @@ header {
 }
 nav {
     /* width: 143px; */
-    margin-top: 43px;
+    margin-top: 40px;
     float: right;
   }
 nav ul {
@@ -40,22 +40,30 @@ nav a {
     padding:10px;
   }
 ul a{
-    width: 40px;
-    height: 40px;
-  }
+  width: 40px;
+  height: 40px;
+}
 .li1 {
   margin-right: 15px;
 }
-.li2 {
-    margin-right: 8px;
-  }
-.login {
-    font-family: 'Rubik', sans-serif;
-    font-weight: 400;
+.li1 a {
+  border: 2px solid blue;
 }
-.logout {
-    font-family: 'Rubik', sans-serif;
-    font-weight: 400;
+.li2 {
+  margin-right: 8px;
+}
+.li2 a {
+  border: 2px solid blue;
+}
+.login {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  color: blueviolet;
+}
+.registration {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  color: blueviolet;
 }
 input{
   height: 40px;

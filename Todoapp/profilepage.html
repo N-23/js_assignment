@@ -5,6 +5,8 @@
   <meta charaset="utf-8"><!--meta tags are used for description, keywords, author info and they are also useful for search engines-->
   <title>Todo App</title>
   <link rel="stylesheet" type="text/css" href="CSS/profilepage_css.css" />
+  <link rel="stylesheet" href="CSS/normalise.css" type="text/css" />
+    <link rel="stylesheet" href="CSS/reset.css" type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Rubik:400i&display=swap" rel="stylesheet"><!--400:Regular Italic-->
   <link href="https://fonts.googleapis.com/css?family=Nunito:400i&display=swap" rel="stylesheet"><!--400:Regular Italic-->
   
@@ -93,7 +95,7 @@
           
           <figure>
             <img id="UserImage" src="../Images/pi_1.jpg" alt="Profile Image" width="150" height="150">
-            <input id="ProfileImage" accept="Images/*" onchange="UploadProfilePhoto();" disabled>
+            <input id="ProfileImage" accept="Images/*" onchange="UploadProfilePhoto(event);" disabled>
           </figure>
 
           <input type="email" id="email" name="email" disabled/>
